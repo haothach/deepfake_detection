@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block title %}About Us | Deepfake Detector{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+  <div class="row justify-content-center">
+    <div class="col-lg-8 text-center">
+      <h1 class="fw-bold mb-4">About Us</h1>
+      <p class="lead text-muted mb-5">
+        DeepfakeApp là một website giúp phát hiện các video giả mạo (deepfake) bằng công nghệ trí tuệ nhân tạo.
+Chúng tôi mong muốn mang đến một công cụ trực quan, dễ sử dụng để người dùng có thể kiểm chứng tính xác thực của nội
+          dung số, từ đó nâng cao nhận thức và hạn chế rủi ro khi tiếp cận thông tin sai lệch.
+      </p>
+
+          <!-- Contact Us Button -->
+      <a href="{% url 'contact' %}" class="btn btn-primary btn-lg px-4">
+        Contact Us
+      </a>
+    </div>
+  </div>
+</div>
+{% endblock %}

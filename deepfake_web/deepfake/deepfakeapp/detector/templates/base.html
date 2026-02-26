@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Deepfake Detector{% endblock %}</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'detector/style.css' %}">
+    <!-- Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="d-flex flex-column min-vh-100">
+
+<!-- Navbar chung -->
+<nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm mb-4">
+  <div class="container">
+    <a class="navbar-brand fw-bold text-primary" href="{% url 'home' %}">
+      <i class="bi bi-shield-lock"></i> DeepfakeApp
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item">
+          <a class="nav-link {% if request.resolver_match.url_name == 'home' %}active fw-bold text-primary{% endif %}" href="{% url 'home' %}">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link {% if request.resolver_match.url_name == 'detect' %}active fw-bold text-primary{% endif %}" href="{% url 'detect' %}">Detect</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link {% if request.resolver_match.url_name == 'about' %}active fw-bold text-primary{% endif %}" href="{% url 'about' %}">About Us</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link {% if request.resolver_match.url_name == 'contact' %}active fw-bold text-primary{% endif %}" href="{% url 'contact' %}">Contact Us</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- Nội dung riêng từng page -->
+<main class="flex-grow-1">
+  <div class="container mb-5">
+      {% block content %}{% endblock %}
+  </div>
+</main>
+
+<!-- Footer -->
+<footer class="text-center text-white mt-auto"
+        style="background-color:#1c2331; margin:0; padding:20px 0;">
+  <h6 class="fw-bold text-primary mb-2">DeepfakeApp</h6>
+  <p class="mb-2">Phát hiện video giả mạo dễ dàng và nhanh chóng.</p>
+  <p>
+    <a href="mailto:haonhut.thach@gmail.com" class="text-white">
+      haonhut.thach@gmail.com
+    </a>
+  </p>
+</footer>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% block title %}Compare | Deepfake Detector{% endblock %}
+
+{% block content %}
+<div class="container text-center">
+  <h2 class="fw-bold mb-4">Compare Real vs Deepfake</h2>
+
+  <!-- Hiển thị video sau khi upload -->
+  {% if real_url and fake_url %}
+  <div class="row">
+    <!-- Real Video -->
+    <div class="col-md-6 mb-4">
+      <div class="card shadow-sm border-0">
+        <div class="card-header bg-success text-white fw-bold">Real Video</div>
+        <div class="card-body">
+          <video autoplay muted loop controls class="w-100 rounded" height="300">
+            <source src="{{ real_url }}" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+      </div>
+    </div>
+
+    <!-- Deepfake Video -->
+    <div class="col-md-6 mb-4">
+      <div class="card shadow-sm border-0">
+        <div class="card-header bg-danger text-white fw-bold">Deepfake Video</div>
+        <div class="card-body">
+          <video autoplay muted loop controls class="w-100 rounded" height="300">
+            <source src="{{ fake_url }}" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+      </div>
+    </div>
+  </div>
+  {% endif %}
+
+  <!-- Button GO TO DETECT -->
+  <div class="mt-4">
+    <a href="{% url 'detect' %}" class="btn btn-primary btn-lg px-5 fw-bold">
+      GO TO DETECT
+    </a>
+  </div>
+</div>
+{% endblock %}

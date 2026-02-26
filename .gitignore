@@ -1,0 +1,3 @@
+# Large vector data
+models/vector/
+*.npy
